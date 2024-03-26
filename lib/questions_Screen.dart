@@ -51,10 +51,7 @@ import 'package:quiz/quiz.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({
-    super.key,
-    required this.theAnswerFunction,
-  });
+  const QuestionsScreen({super.key, required this.theAnswerFunction});
   final void Function(String answer) theAnswerFunction;
 
   State<QuestionsScreen> createState() {
@@ -65,8 +62,8 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentIndex = 0;
 
-  void answerQuestion(String selectedAnswers) {
-    widget.theAnswerFunction(selectedAnswers);
+  void answerQuestion(String answer) {
+    widget.theAnswerFunction(answer);
     setState(() {
       currentIndex++;
     });
