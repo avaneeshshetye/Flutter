@@ -47,12 +47,10 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/answerButton.dart';
 import 'package:quiz/dart/questions.dart';
-import 'package:quiz/quiz.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key, required this.theAnswerFunction});
-  final void Function(String answer) theAnswerFunction;
+  const QuestionsScreen({super.key, required this.AnswerFunction});
+  final void Function(String answer) AnswerFunction;
 
   State<QuestionsScreen> createState() {
     return _QuestionsScreenState();
@@ -63,7 +61,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentIndex = 0;
 
   void answerQuestion(String answer) {
-    widget.theAnswerFunction(answer);
+    widget.AnswerFunction(answer);
     setState(() {
       currentIndex++;
     });
@@ -97,10 +95,11 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: AnswerButton(
-                        text: answer,
-                        onTap: () {
-                          answerQuestion(answer);
-                        }),
+                      text: answer,
+                      onTap: () {
+                        answerQuestion(answer);
+                      },
+                    ),
                   );
                 }),
               ],
